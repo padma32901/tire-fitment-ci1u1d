@@ -9,7 +9,7 @@ import { FitmentModule } from "../fitment/fitment.module";
 
 import { StoreModule, MetaReducer } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
-
+import { VehiclesService } from "./services/vehicles.service";
 
 @NgModule({
   imports: [
@@ -20,6 +20,7 @@ import { EffectsModule } from "@ngrx/effects";
     EffectsModule.forRoot([])
   ],
   declarations: [AppComponent, HelloComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [VehiclesService]
 })
 export class AppModule {}

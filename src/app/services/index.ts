@@ -1,0 +1,1 @@
+export {VehicleService} from './vehicle'
