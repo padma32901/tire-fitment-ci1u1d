@@ -11,7 +11,7 @@ export class VehiclesService {
 
   constructor(private http: HttpClient) {}
 
-  getYears(user: any) {
+  getYears() {
     const headers = new HttpHeaders({ "Content-Type": "application/json" });
     const options = { headers };
     // Not added any authentication token Since there is no authenication needed

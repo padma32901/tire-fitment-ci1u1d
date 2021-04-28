@@ -1,1 +1,1 @@
-export {VehicleService} from './vehicle'
+export { VehicleService } from "./vehicles.service";

@@ -3,10 +3,11 @@ import { Actions, Effect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
 
 import { map, switchMap, catchError } from "rxjs/operators";
-
-import * as vehicleActions from "../actions/vehicle.actions";
-import { LoadYearsSuccess, LoadYearsFail } from "../actions/vehicle.action";
 import { VehiclesService } from "../../../app/services/vehicles.service";
+
+import * as vehicleAction from "../actions";
+
+import { LoadYears, LoadYearsFail, LoadYearsSuccess } from "../actions";
 
 @Injectable()
 export class VehicleEffect {
@@ -17,9 +18,8 @@ export class VehicleEffect {
 
   @Effect()
   getYears = this._actions.pipe(
-    ofType(vehicleActions.LoadYears),
     switchMap(action => {
-      return this._vehiclesService.pipe(
+      return this._vehiclesService.getYears().pipe(
         map((response: any) => new LoadYearsSuccess({ years: response.year })),
         catchError(error => of(new LoadYearsFail(error)))
       );
